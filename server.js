@@ -11,4 +11,9 @@ app.get('/', (req, res)=>{
     //res.status(500).json({message: "Error"})
     res.render('index', {text: 'World'})
 })
+
+// calling the mini app
+const userRouter = require('./routes/users')
+app.use('/users', userRouter)
+
 app.listen(3000)
