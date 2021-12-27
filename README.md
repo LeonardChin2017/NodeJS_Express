@@ -6,5 +6,6 @@ Repository to keep my learning material for node js.
 npm init -y 
 npm i express
 npm i --saved-dev nodemon
+npm i ejs
 npm run StartDev
 ```
