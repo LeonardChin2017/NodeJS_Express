@@ -17,6 +17,7 @@ router.post("/", (req, res)=>{
 router
     .route("/:id")
     .get((req, res) =>{
+        console.log(req.user)
         var userid = req.params.id
         res.send("Get user id " + userid)
     })
@@ -48,5 +49,14 @@ router
 //     //res.json({message: userid})
 //     res.send("delete user id " + userid)
 // })
+
+const users = [{name: "Kyle"}, {name: "Sally"}]
+// param is the middle, it run between the request being send to server and the actual response send to user
+// get, put, delete are response to user
+// it need to call next to proceed
+router.param("id", (req, res, next, id) =>{
+    req.user = users[id]
+    next()
+})
 
 module.exports = router

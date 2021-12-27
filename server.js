@@ -2,8 +2,11 @@ const express = require('express')
 const app = express()
 
 app.set('view engine', 'ejs')
+// app.use(logger) // middle need to defined on the top
 
-app.get('/', (req, res)=>{
+
+// can have as many logger as I want
+app.get('/', logger, (req, res)=>{
     console.log("connecting with local host 3000")
     //res.send("Message")
     //res.download("server.js")
@@ -15,5 +18,10 @@ app.get('/', (req, res)=>{
 // calling the mini app
 const userRouter = require('./routes/users')
 app.use('/users', userRouter)
+
+function logger(req, res, next){
+    console.log(req.originalUrl)
+    next()
+}
 
 app.listen(3000)
