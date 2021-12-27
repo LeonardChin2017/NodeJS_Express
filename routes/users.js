@@ -10,7 +10,7 @@ router.get("/new", (req, res)=>{
 })
 
 router.post("/", (req, res)=>{
-    res.send('Create user')
+    res.send("Create user with id " + req.body.firstName)
 })
 
 // cleaner way

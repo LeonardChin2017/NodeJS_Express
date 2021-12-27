@@ -4,8 +4,15 @@
         <title> Document </title>
     </head>
     <body>
-        <p> 
+        <!-- <p> 
             Hello <%= locals.text || 'Default' %> 
-        </p>
+        </p> -->
+
+        <form action="/users" method="POST">
+            <label> 
+                <input type="text" name="firstName" value="<%= locals.firstName %>"/>
+            </label>
+            <button type="submit"> Submit </button>
+        </form>
     </body>
 </html>
